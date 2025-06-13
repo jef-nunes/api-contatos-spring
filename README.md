@@ -1,13 +1,5 @@
 ## Configurando o projeto
-
-#### 1. Clonar o arquivo pom.xml / adicionar as dependências
-* mysql-connector-java
-* spring-boot-devtools
-* spring-boot-starter-web
-* spring-boot-starter-data-jpa
-* lombok
-
-#### 2. Criar / editar o arquivo src/main/resources/application.properties
+#### Necessário criar o arquivo src/main/resources/application.properties e adicionar as seguintes propriedades:
 
 Altera a estrutura da tabela caso a entidade tenha mudanças <br>
 `spring.jpa.hibernate.ddl-auto=update`
