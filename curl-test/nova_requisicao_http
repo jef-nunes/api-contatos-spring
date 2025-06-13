@@ -1,0 +1,67 @@
+#!/bin/bash
+
+# URL base
+URL_BASE="http://localhost:8080"
+# Primeiro argumento, método HTTP
+REQ_METODO="$1"
+# Segundo argumento, rota da requisição
+REQ_ROTA="$2"
+# Terceiro argumento, corpo da requisição
+REQ_CORPO="$3"
+
+
+# Verificar se o método e rota foram passados
+if [[ -z "$REQ_METODO" || -z "$REQ_ROTA" ]]; then
+    echo "Uso: $0 <metodo_http> <rota> [corpo]"
+    exit 1
+fi
+
+# Remover o caractere "/" da variável $REQ_ROTA (caso exista)
+if [[ "${REQ_ROTA:0:1}" == "/" ]]; then
+    REQ_ROTA="${REQ_ROTA:1}"
+fi
+
+# URL resultante
+URL_FINAL="$URL_BASE/$REQ_ROTA"
+
+# Lógica para cada método
+#
+# GET
+#
+if [[ "$REQ_METODO" == "GET" ]]; then
+    curl "$URL_FINAL"
+#
+# POST
+#
+elif [[ "$REQ_METODO" == "POST" ]]; then
+    if [[ -z "$REQ_CORPO" ]]; then
+        echo "Erro - Body da requisição POST não foi fornecido."
+        exit 1
+    fi
+    curl -X POST "$URL_FINAL" \
+    -H "Content-Type: application/json" \
+    -d "$REQ_CORPO"
+#
+# PUT
+#
+elif [[ "$REQ_METODO" == "PUT" ]]; then
+    if [[ -z "$REQ_CORPO" ]]; then
+        echo "Erro - Body da requisição PUT não foi fornecido."
+        exit 1
+    fi
+    curl -X PUT "$URL_FINAL" \
+    -H "Content-Type: application/json" \
+    -d "$REQ_CORPO"
+#
+# DELETE
+#
+elif [[ "$REQ_METODO" == "DELETE" ]]; then
+    curl -X DELETE "$URL_FINAL"
+else
+    echo "Método HTTP inválido / não suportado pelo script."
+    exit 1
+fi
+
+
+# Quebra de linha
+echo " "
