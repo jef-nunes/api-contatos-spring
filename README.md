@@ -1,5 +1,5 @@
 ## Configurando o projeto
-#### Necessário criar o arquivo src/main/resources/application.properties e adicionar as seguintes propriedades:
+#### Necessário criar o arquivo src/main/resources/application.properties e adicionar as propriedades:
 
 Altera a estrutura da tabela caso a entidade tenha mudanças <br>
 `spring.jpa.hibernate.ddl-auto=update`
