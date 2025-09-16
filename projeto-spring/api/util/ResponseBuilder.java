@@ -8,28 +8,39 @@ import java.util.List;
 
 public class ResponseBuilder {
 
-    // Response listando um único objeto
-    public static ResponseModel buildResponse(Object singleObject) {
-        return new ResponseModel(List.of(singleObject), LocalDateTime.now(), new ArrayList<>());
+    // Guardar constantes para o status do ResponseModel
+    private static class ResponseModelStatus {
+        public static final String SUCCESS = "success";
+        public static final String FAILURE = "failure";
     }
 
-    // Response listando vários objetos (Sobrecarga)
-    public static ResponseModel buildResponse(List<?> data) {
-        return new ResponseModel(data, LocalDateTime.now(), new ArrayList<>());
+    // Response bem sucedida listando um único objeto
+    public static ResponseModel buildSuccessResponse(Object singleObject) {
+        return new ResponseModel(ResponseModelStatus.SUCCESS,List.of(singleObject), LocalDateTime.now(), new ArrayList<>());
     }
 
-    // Response com lista de dados (data) vazia
-    public static ResponseModel buildEmptyDataResponse(){
-        return new ResponseModel(new ArrayList<>(), LocalDateTime.now(), new ArrayList<>());
+    // Sobrecarga - Response bem sucedida listando vários objetos
+    public static ResponseModel buildSuccessResponse(List<?> data) {
+        return new ResponseModel(ResponseModelStatus.SUCCESS,data, LocalDateTime.now(), new ArrayList<>());
     }
 
-    // Response bad request sem mensagens de erro
-    public static ResponseModel buildBadRequestResponse(){
-        return new ResponseModel(new ArrayList<>(), LocalDateTime.now(), new ArrayList<>());
+    // Response bem sucedida com lista de dados (data) vazia
+    public static ResponseModel buildSuccessEmptyDataResponse(){
+        return new ResponseModel(ResponseModelStatus.SUCCESS,new ArrayList<>(), LocalDateTime.now(), new ArrayList<>());
     }
 
-    // Response bad request com mensagens de erro (exemplo: mensagens vindas do Jakarta Validation)
-    public static ResponseModel buildBadRequestResponse(List<?> messages){
-        return new ResponseModel(new ArrayList<>(), LocalDateTime.now(), messages);
+    // Response falha com lista de dados (data) vazia
+    public static ResponseModel buildFailureEmptyDataResponse(){
+        return new ResponseModel(ResponseModelStatus.FAILURE,new ArrayList<>(), LocalDateTime.now(), new ArrayList<>());
+    }
+
+    // Response falha, bad request, sem mensagens de erro
+    public static ResponseModel buildFailureBadRequestResponse(){
+        return new ResponseModel(ResponseModelStatus.FAILURE,new ArrayList<>(), LocalDateTime.now(), new ArrayList<>());
+    }
+
+    // Sobrecarga - Response falha, bad request, com mensagens de erro (exemplo: mensagens vindas do Jakarta Validation)
+    public static ResponseModel buildFailureBadRequestResponse(List<?> messages){
+        return new ResponseModel(ResponseModelStatus.FAILURE,new ArrayList<>(), LocalDateTime.now(), messages);
     }
 }
