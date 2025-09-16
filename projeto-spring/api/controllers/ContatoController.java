@@ -29,7 +29,7 @@ public class ContatoController {
     public ResponseEntity<?> create(@Valid @RequestBody ContatoRequestDto requestDTO) {
         Contato entity = service.create(requestDTO);
         ContatoResponseDto dto = contatoMapper.toResponseDto(entity);
-        return ResponseEntity.status(HttpStatus.CREATED).body(ResponseBuilder.buildResponse(dto));
+        return ResponseEntity.status(HttpStatus.CREATED).body(ResponseBuilder.buildSuccessResponse(dto));
     }
 
     // GET - Todos os contatos
@@ -40,7 +40,7 @@ public class ContatoController {
         for (Contato entity : entityList) {
             dtoList.add(contatoMapper.toResponseDto(entity));
         }
-        return ResponseEntity.ok(ResponseBuilder.buildResponse(dtoList));
+        return ResponseEntity.ok(ResponseBuilder.buildSuccessResponse(dtoList));
     }
 
     // GET - Contato por ID
@@ -48,7 +48,7 @@ public class ContatoController {
     public ResponseEntity<?> find(@PathVariable Long id) {
         Contato entity = service.find(id);
         ContatoResponseDto dto = contatoMapper.toResponseDto(entity);
-        return ResponseEntity.ok(ResponseBuilder.buildResponse(dto));
+        return ResponseEntity.ok(ResponseBuilder.buildSuccessResponse(dto));
     }
 
     // PUT - Atualizar contato
@@ -56,14 +56,14 @@ public class ContatoController {
     public ResponseEntity<?> update(@PathVariable Long id, @Valid @RequestBody ContatoRequestDto requestDTO) {
         Contato entity = service.update(id, requestDTO);
         ContatoResponseDto dto = contatoMapper.toResponseDto(entity);
-        return ResponseEntity.ok(ResponseBuilder.buildResponse(dto));
+        return ResponseEntity.ok(ResponseBuilder.buildSuccessResponse(dto));
     }
 
     // DELETE - Remover contato
     @DeleteMapping(value = "/{id}")
     public ResponseEntity<?> delete(@PathVariable Long id) {
         service.delete(id);
-        return ResponseEntity.ok(ResponseBuilder.buildEmptyDataResponse());
+        return ResponseEntity.ok(ResponseBuilder.buildSuccessEmptyDataResponse());
     }
 
     // POST - Adicionar tag
@@ -71,7 +71,7 @@ public class ContatoController {
     public ResponseEntity<?> addTag(@PathVariable Long contatoId, @PathVariable Long tagId) {
         Contato entity = service.addTag(contatoId, tagId);
         ContatoResponseDto dto = contatoMapper.toResponseDto(entity);
-        return ResponseEntity.ok(ResponseBuilder.buildResponse(dto));
+        return ResponseEntity.ok(ResponseBuilder.buildSuccessResponse(dto));
     }
 
     // DELETE - Remover tag
@@ -79,6 +79,6 @@ public class ContatoController {
     public ResponseEntity<?> removeTag(@PathVariable Long contatoId, @PathVariable Long tagId) {
         Contato entity = service.removeTag(contatoId, tagId);
         ContatoResponseDto dto = contatoMapper.toResponseDto(entity);
-        return ResponseEntity.ok(ResponseBuilder.buildResponse(dto));
+        return ResponseEntity.ok(ResponseBuilder.buildSuccessResponse(dto));
     }
 }
