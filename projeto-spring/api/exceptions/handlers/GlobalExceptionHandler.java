@@ -22,7 +22,7 @@ public class GlobalExceptionHandler {
     public ResponseEntity<ResponseModel> handleNotFound(ResourceNotFoundException ex) {
         return ResponseEntity
                 .status(HttpStatus.NOT_FOUND)
-                .body(ResponseBuilder.buildEmptyDataResponse());
+                .body(ResponseBuilder.buildFailureEmptyDataResponse());
     }
 
     // Trata erros de validação (Jakarta Validation)
@@ -36,7 +36,7 @@ public class GlobalExceptionHandler {
 
         return ResponseEntity
                 .status(HttpStatus.BAD_REQUEST)
-                .body(ResponseBuilder.buildBadRequestResponse(errors));
+                .body(ResponseBuilder.buildFailureBadRequestResponse(errors));
     }
 
     // Tratar MethodArgumentTypeMismatchException
@@ -44,7 +44,7 @@ public class GlobalExceptionHandler {
     public ResponseEntity<ResponseModel> handleMethodArgumentTypeMismatchException(MethodArgumentTypeMismatchException ex){
         return ResponseEntity
                 .status(HttpStatus.BAD_REQUEST)
-                .body(ResponseBuilder.buildBadRequestResponse());
+                .body(ResponseBuilder.buildFailureBadRequestResponse());
     }
 
     // Tratar IllegalArgumentException
@@ -52,7 +52,7 @@ public class GlobalExceptionHandler {
     public ResponseEntity<ResponseModel> handleIllegalArgumentException(IllegalArgumentException ex){
         return ResponseEntity
                 .status(HttpStatus.BAD_REQUEST)
-                .body(ResponseBuilder.buildBadRequestResponse());
+                .body(ResponseBuilder.buildFailureBadRequestResponse());
     }
 
     // Trata qualquer outra exceção
@@ -60,6 +60,6 @@ public class GlobalExceptionHandler {
     public ResponseEntity<ResponseModel> handleGenericException(Exception ex) {
         return ResponseEntity
                 .status(HttpStatus.INTERNAL_SERVER_ERROR)
-                .body(ResponseBuilder.buildEmptyDataResponse());
+                .body(ResponseBuilder.buildFailureEmptyDataResponse());
     }
 }
