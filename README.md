@@ -1,5 +1,11 @@
 ### Sobre
-Protótipo de API para cadastro de contatos, desenvolvido com Java e Spring Framework. As respostas da API foram padronizadas conforme o exemplo abaixo:
+Protótipo de API para cadastro de contatos, desenvolvido com Java e Spring Framework.
+
+### Banco de dados
+Para o projeto foi escolhido o banco de dados MySQL.
+
+### Respostas da API
+As respostas da API foram padronizadas conforme o exemplo abaixo:
 
 ```json
 {
