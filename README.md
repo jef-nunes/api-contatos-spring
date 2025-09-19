@@ -19,7 +19,7 @@ As respostas da API foram padronizadas conforme o exemplo abaixo:
 ```
 
 
-### Dependências Maven utilizadas
+### Dependências Maven
 - spring-boot-starter-web
 - spring-boot-devtools
 - org.springframework.boot
