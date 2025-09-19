@@ -1,5 +1,5 @@
 ### Sobre
-Protótipo de API para cadastro de contatos, desenvolvido com Java e Spring Framework.
+API para cadastro de contatos, desenvolvido com Java e Spring Framework.
 
 
 ### Banco de dados
