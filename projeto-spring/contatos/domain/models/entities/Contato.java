@@ -1,4 +1,4 @@
-package com.example.contatos.models;
+package com.example.contatos.domain.models.entities;
 
 import jakarta.persistence.*;
 import lombok.*;

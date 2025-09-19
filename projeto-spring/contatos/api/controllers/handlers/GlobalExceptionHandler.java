@@ -1,8 +1,8 @@
-package com.example.contatos.exceptions.handlers;
+package com.example.contatos.api.controllers.handlers;
 
-import com.example.contatos.util.ResponseBuilder;
+import com.example.contatos.api.controllers.util.ResponseBuilder;
 import com.example.contatos.exceptions.ResourceNotFoundException;
-import com.example.contatos.models.ResponseModel;
+import com.example.contatos.domain.models.ResponseModel;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.MethodArgumentNotValidException;
@@ -22,7 +22,7 @@ public class GlobalExceptionHandler {
     public ResponseEntity<ResponseModel> handleNotFound(ResourceNotFoundException ex) {
         return ResponseEntity
                 .status(HttpStatus.NOT_FOUND)
-                .body(ResponseBuilder.buildFailureEmptyDataResponse());
+                .body(ResponseBuilder.buildFailureResponse(List.of("Recurso não encontrado.")));
     }
 
     // Trata erros de validação (Jakarta Validation)
@@ -36,7 +36,7 @@ public class GlobalExceptionHandler {
 
         return ResponseEntity
                 .status(HttpStatus.BAD_REQUEST)
-                .body(ResponseBuilder.buildFailureBadRequestResponse(errors));
+                .body(ResponseBuilder.buildFailureResponse(errors));
     }
 
     // Tratar MethodArgumentTypeMismatchException
@@ -44,7 +44,7 @@ public class GlobalExceptionHandler {
     public ResponseEntity<ResponseModel> handleMethodArgumentTypeMismatchException(MethodArgumentTypeMismatchException ex){
         return ResponseEntity
                 .status(HttpStatus.BAD_REQUEST)
-                .body(ResponseBuilder.buildFailureBadRequestResponse());
+                .body(ResponseBuilder.buildFailureResponse(List.of("URL inválida.")));
     }
 
     // Tratar IllegalArgumentException
@@ -52,7 +52,7 @@ public class GlobalExceptionHandler {
     public ResponseEntity<ResponseModel> handleIllegalArgumentException(IllegalArgumentException ex){
         return ResponseEntity
                 .status(HttpStatus.BAD_REQUEST)
-                .body(ResponseBuilder.buildFailureBadRequestResponse());
+                .body(ResponseBuilder.buildFailureResponse(List.of("URL inválida.")));
     }
 
     // Trata qualquer outra exceção
@@ -60,6 +60,6 @@ public class GlobalExceptionHandler {
     public ResponseEntity<ResponseModel> handleGenericException(Exception ex) {
         return ResponseEntity
                 .status(HttpStatus.INTERNAL_SERVER_ERROR)
-                .body(ResponseBuilder.buildFailureEmptyDataResponse());
+                .body(ResponseBuilder.buildFailureResponse(List.of("Erro interno do servidor.")));
     }
 }

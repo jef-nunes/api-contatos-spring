@@ -1,8 +1,8 @@
-package com.example.contatos.mapstruct;
+package com.example.contatos.domain.mappers;
 
-import com.example.contatos.dtos.ContatoRequestDto;
-import com.example.contatos.dtos.ContatoResponseDto;
-import com.example.contatos.models.Contato;
+import com.example.contatos.api.dtos.ContatoRequestDto;
+import com.example.contatos.api.dtos.ContatoResponseDto;
+import com.example.contatos.domain.models.entities.Contato;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 

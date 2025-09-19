@@ -1,4 +1,4 @@
-package com.example.contatos.dtos;
+package com.example.contatos.api.dtos;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 import lombok.*;

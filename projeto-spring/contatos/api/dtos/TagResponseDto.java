@@ -1,4 +1,4 @@
-package com.example.contatos.dtos;
+package com.example.contatos.api.dtos;
 
 import lombok.*;
 import java.util.List;

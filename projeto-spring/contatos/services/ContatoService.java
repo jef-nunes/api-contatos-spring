@@ -1,10 +1,10 @@
 package com.example.contatos.services;
 
-import com.example.contatos.dtos.ContatoRequestDto;
+import com.example.contatos.api.dtos.ContatoRequestDto;
 import com.example.contatos.exceptions.ResourceNotFoundException;
-import com.example.contatos.mapstruct.ContatoMapper;
-import com.example.contatos.models.Contato;
-import com.example.contatos.models.Tag;
+import com.example.contatos.domain.mappers.ContatoMapper;
+import com.example.contatos.domain.models.entities.Contato;
+import com.example.contatos.domain.models.entities.Tag;
 import com.example.contatos.repositories.ContatoRepository;
 import com.example.contatos.repositories.TagRepository;
 import lombok.RequiredArgsConstructor;

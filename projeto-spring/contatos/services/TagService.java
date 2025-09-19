@@ -1,9 +1,9 @@
 package com.example.contatos.services;
 
-import com.example.contatos.dtos.TagRequestDto;
+import com.example.contatos.api.dtos.TagRequestDto;
 import com.example.contatos.exceptions.ResourceNotFoundException;
-import com.example.contatos.mapstruct.TagMapper;
-import com.example.contatos.models.Tag;
+import com.example.contatos.domain.mappers.TagMapper;
+import com.example.contatos.domain.models.entities.Tag;
 import com.example.contatos.repositories.TagRepository;
 import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
