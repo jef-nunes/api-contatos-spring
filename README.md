@@ -22,7 +22,6 @@ As respostas da API foram padronizadas conforme o exemplo abaixo:
 ### Dependências Maven
 - spring-boot-starter-web
 - spring-boot-devtools
-- org.springframework.boot
 - spring-boot-starter-test
 - spring-boot-starter-data-jpa
 - spring-boot-starter-validation
