@@ -17,14 +17,3 @@ As respostas da API foram padronizadas conforme o exemplo abaixo:
   "timestamp":"16-09-2025 14:50"
 }
 ```
-
-
-### Dependências Maven
-- spring-boot-starter-web
-- spring-boot-devtools
-- spring-boot-starter-test
-- spring-boot-starter-data-jpa
-- spring-boot-starter-validation
-- mysql-connector-j
-- lombok
-- mapstruct
