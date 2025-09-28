@@ -1,5 +1,5 @@
 ### Sobre
-API para cadastro de contatos, desenvolvido com Java e Spring Framework. Para gerenciamento do projeto foi escolhido o Maven.
+Backend para cadastro de contatos, desenvolvido com Java e Spring Framework. Para gerenciamento do projeto foi escolhido o Maven.
 
 
 ### Banco de dados
