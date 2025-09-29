@@ -1,4 +1,4 @@
-package com.example.contatos.api.configs;
+package com.example.contatos.config;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
