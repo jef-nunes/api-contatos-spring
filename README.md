@@ -4,7 +4,7 @@ Backend para registro de contatos, desenvolvido com Java e Spring Framework. Par
 <br>
 
 ### Banco de dados
-Para o projeto foi escolhido o banco de dados H2 em modo de arquivo.
+Para o projeto foi escolhido o banco de dados portável H2 em modo de arquivo.
 <br>
 <br>
 
