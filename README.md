@@ -1,14 +1,24 @@
-### Sobre
-Backend para registro de contatos, desenvolvido com Java e Spring Framework. Para gerenciamento do projeto foi escolhido o Maven.
-<br>
-<br>
+## Sobre
+O projeto consiste em uma API REST que permite a um client gerenciar contatos, salvando os dados do contato em um banco de dados portável. Cada contato pode ter nome, email, telefone e tags descritivas.
+<br><br>
 
-### Banco de dados
-Para o projeto foi escolhido o banco de dados portável H2 em modo de arquivo.
-<br>
-<br>
+## Tecnologias
+Lista das principais tecnologias utilizadas no projeto:
+1. Linguagem: Java v21
+2. Framework: Spring Boot v3.5.6
+3. Banco de dados: H2 v2.3.232 
+4. Build tool: Maven (latest)
+<br><br>
 
-### Respostas da API
+## Modelo de dados
+O sistema contem duas entidades principais: contatos e tags.
+<br><br>
+
+## Funcionalidades
+É possível realizar operações CRUD das entidades, bem como criar relacionamentos entre determinado contato e tag (muitos para muitos).
+<br><br>
+
+## Respostas da API
 As respostas da API foram padronizadas conforme o exemplo abaixo:
 
 ```json
